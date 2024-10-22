@@ -22,7 +22,7 @@ sudo apt-get install -y docker.io
 # Start and enable Docker
 sudo systemctl start docker
 sudo systemctl enable docker
-
+```
 
 # Using the Dockerfile
 
