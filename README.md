@@ -35,7 +35,7 @@ git clone https://github.com/your-username/wgs_dockerfile.git
 cd wgs-wgs_dockerfile
 ```
 
-## Build the Docker image:
+### Build the Docker image:
 
 ```
 docker build -t wgs_pipeline:latest .
@@ -45,16 +45,17 @@ docker build -t wgs_pipeline:latest .
 
 Once the image is built, you can run the container and execute the WGS pipeline. First, make sure your WGS data files and TruSeq3-PE.fa adapter file are in the working directory.
 
-## To run the container, use the following command:
+### To run the container, use the following command:
 
 ```
 docker run -v /path/to/your/data:/data -it wgs_pipeline:latest bash
 ```
-## This command will:
+### This command will:
 
-Mount your local data directory to the /data directory inside the container.
-Start an interactive terminal session inside the container.
-Step 3: Execute the Pipeline
+* Mount your local data directory to the /data directory inside the container.
+* Start an interactive terminal session inside the container.
+
+## Step 3: Execute the Pipeline
 Once inside the container, you can run the Python script that performs the analysis:
 
 ```
@@ -63,20 +64,20 @@ python /data/wgs_analysis.py
 
 ## This will:
 
-Run FastQC for quality control.
-Use Trimmomatic to remove adapters and filter low-quality reads.
-Combine the filtered paired-end reads.
-Assemble the genome using SPAdes.
-Evaluate the assembly quality using QUAST.
+* Run FastQC for quality control.
+* Use Trimmomatic to remove adapters and filter low-quality reads.
+* Combine the filtered paired-end reads.
+* Assemble the genome using SPAdes.
+* Evaluate the assembly quality using QUAST.
 
 ## Output
 The results of each step will be saved in respective output directories:
 
-FastQC results: fastqc_output/
-Trimmed files: paired and unpaired .fq.gz files
-SPAdes assembly: spades_output/
-QUAST quality report: quast_output/
+* FastQC results: fastqc_output/
+* Trimmed files: paired and unpaired .fq.gz files
+* SPAdes assembly: spades_output/
+* QUAST quality report: quast_output/
 
 ## Additional Notes
-Ensure that your TruSeq3-PE.fa adapter file is in the /data directory.
-If you need to change any configuration, make sure to modify the wgs_analysis.py script.
+* Ensure that your TruSeq3-PE.fa adapter file is in the /data directory.
+* If you need to change any configuration, make sure to modify the wgs_analysis.py script.
